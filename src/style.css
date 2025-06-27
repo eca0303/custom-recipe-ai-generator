@@ -1,0 +1,189 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f0ff;
+    color: #222;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* form, output */
+    gap: 20px;
+  }
+  
+  /* Panels */
+  .form-section,
+  .output-section,
+  .saved-section {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+  
+  .saved-section {
+    overflow-y: auto;
+  }
+  
+  .saved-section h2 {
+    margin-top: 0;
+  }
+  
+  /* Inputs */
+  label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  
+  select,
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+
+  /* Checkbox Styles */
+  input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    vertical-align: middle;
+  }
+  
+  .predefined-allergies label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-weight: normal;
+  }
+  
+  /* Input Group (Allergy & Texture) */
+  .input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  
+  .input-group input {
+    flex: 1;
+    height: 38px;
+    padding: 6px 12px;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+  
+  .input-group button {
+    height: 38px;
+    padding: 0 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background-color: #ff69b4;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    line-height: 1;
+    box-sizing: border-box;
+  }
+  
+  .input-group button:hover {
+    background-color: #e055a0;
+  }
+  
+  /* List Styling */
+  #allergyList,
+  #textureList,
+  #savedRecipes {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  
+  #allergyList li,
+  #textureList li,
+  #savedRecipes li {
+    margin-bottom: 6px;
+  }
+  
+  /* Slider */
+  .servings-slider {
+    margin-top: 15px;
+  }
+  
+  .servings-slider input[type="range"] {
+    width: 100%;
+  }
+  /* Blinking Effect */
+  .Typewriter__cursor {
+    display: inline-block;
+    animation: blink 1s infinite;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: black;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1 }
+    50% { opacity: 0 }
+  }
+  /* Buttons */
+  button {
+    background-color: #ff69b4;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    display: inline-block;
+  }
+  
+  button:hover {
+    background-color: #5b5056;
+  }
+  
+  #saveButton {
+    background-color: #6c63ff;
+    margin-top: 10px;
+  }
+  
+  #saveButton:hover {
+    background-color: #5549f0;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Custom Recipe Generator</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+  <link rel="stylesheet" href="src/style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>👩‍🍳 AI Custom Recipe Generator</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="layout">
+      <!-- Left Column -->
+      <div class="form-section">
+        <label for="cuisine">Cuisine:</label>
+        <select id="cuisine">
+          <option value="">-- Select Cuisine --</option>
+          <option value="Italian">Italian 🇮🇹</option>
+          <option value="Thai">Thai 🇹🇭</option>
+          <option value="Japanese">Japanese 🇯🇵</option>
+          <option value="Mexican">Mexican 🇲🇽</option>
+          <option value="Indian">Indian 🇮🇳</option>
+          <option value="Middle Eastern">Middle Eastern 🌍</option>
+          <option value="Other">Other (please specify)</option>
+        </select>
+
+        <div id="otherCuisineBox" class="custom-cuisine" style="display: none;">
+          <label>Other Cuisine:</label>
+          <input type="text" id="otherCuisine" placeholder="Enter custom cuisine..." />
+        </div>
+
+        <div class="allergy-section">
+          <h2>Allergen Restrictions</h2>
+          <div class="predefined-allergies">
+            <label><input type="checkbox" /> No Nuts 🥜</label>
+            <label><input type="checkbox" /> Gluten-Free 🌾</label>
+            <label><input type="checkbox" /> Dairy-Free 🥛</label>
+            <label><input type="checkbox" /> No Shellfish 🤐</label>
+          </div>
+
+          <div class="custom-allergy">
+            <label for="newAllergy">Add Custom Allergy:</label>
+            <div class="input-group">
+              <input type="text" id="newAllergy" placeholder="e.g. Soy or Fish" />
+              <button type="button" onclick="addAllergy()">Add</button>
+            </div>
+            <ul id="allergyList"></ul>
+          </div>
+        </div>
+
+        <div class="custom-texture">
+          <label for="newTexture">Add Texture Preference:</label>
+          <div class="input-group">
+            <input type="text" id="newTexture" placeholder="e.g. crispy or soft" />
+            <button type="button" onclick="addTexture()">Add</button>
+          </div>
+          <ul id="textureList"></ul>
+        </div>
+     
+        <div class="servings-slider">
+          <label for="servings">Servings: <span id="servingValue">4</span></label>
+          <input type="range" id="servings" min="1" max="10" value="4" />
+        </div>
+
+        <button onclick="generate()">Generate Recipe</button>
+      </div>
+
+      <!-- Right Column -->
+      <div class="output-section">
+        <h2 id="recipe-title">Your AI-Generated Recipe</h2>
+        <div id="result">Your recipe will appear here...</div>
+      </div>
+    </div>
+
+    <footer>
+      Coded by <a href="https://github.com/eca0303" target="_blank">Emma Aquilina</a>. Open-sourced on
+      <a href="https://github.com/eca0303/short-poem-generator" target="_blank">GitHub</a> and hosted on
+      <a href="https://ai-short-poem-generator.netlify.app/" target="_blank">Netlify</a>.
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("cuisine").addEventListener("change", function () {
+      const otherBox = document.getElementById("otherCuisineBox");
+      otherBox.style.display = this.value === "Other" ? "block" : "none";
+    });
+
+    document.getElementById("servings").addEventListener("input", function () {
+      document.getElementById("servingValue").textContent = this.value;
+    });
+
+    function generate() {
+      document.getElementById("result").textContent = "✨ [AI recipe would appear here] ✨";
+    }
+
+    function addAllergy() {
+      const input = document.getElementById("newAllergy");
+      const allergy = input.value.trim();
+      const list = document.getElementById("allergyList");
+
+      if (allergy) {
+        const li = document.createElement("li");
+        li.textContent = allergy;
+        list.appendChild(li);
+        input.value = "";
+      }
+    }
+
+    function addTexture() {
+      const input = document.getElementById("newTexture");
+      const texture = input.value.trim();
+      const list = document.getElementById("textureList");
+
+      if (texture) {
+        const li = document.createElement("li");
+        li.textContent = texture;
+        list.appendChild(li);
+        input.value = "";
+      }
+    }
+  </script>
+  <script src="src/script.js"></script>
+</body>
+</html>
